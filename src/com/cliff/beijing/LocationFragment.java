@@ -53,8 +53,8 @@ public class LocationFragment extends SherlockFragment implements OnClickListene
                 
         spinner = (Spinner)view.findViewById(R.id.spinnerLocation);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(),
-        		R.array.places, R.layout.sherlock_spinner_item);
-        adapter.setDropDownViewResource(R.layout.sherlock_spinner_dropdown_item);
+        		R.array.places, R.layout.spinner_item);
+        adapter.setDropDownViewResource(R.layout.spinner_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
         
