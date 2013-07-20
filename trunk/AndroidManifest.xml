@@ -33,8 +33,9 @@
         android:uiOptions="splitActionBarWhenNarrow">
         <meta-data
             android:name="APP_ID"
-            android:value="258D309018A8392EA8985F23E1C7A048" />
+            android:value="E5893F7F02A5ADB76772AFD442260A5A" />
         <!-- 258D309018A8392EA8985F23E1C7A048--> 
+        <!-- E5893F7F02A5ADB76772AFD442260A5A --> 
         <!-- meta-data
             android:name="APP_CHANNEL"
             android:value="" /-->

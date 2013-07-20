@@ -81,6 +81,7 @@
     <string name="dialog_intro_detail">您扮演一位从外地到北京谋生的青年。一开始，您只有2000元钱，并且还欠村长（一个流氓头子）5500元债务。这些债务每天的利息高达10%。如果不及时还清，村长会叫在北京的老乡们来扁您，您可能牺牲在北京街头。\n您决定在北京各地铁口黑市倒卖各种物品来发财致富，不仅还掉债务，而且要荣登北京富人排行榜。\n您将体念在北京卖盗版VCD和走私汽车的刺激以及我们这个时代才有的搞笑事件。</string>
     <string name="dialog_first_time">第一次玩这个游戏吗？</string>
     <string name="dialog_ranking">北京富人排行榜</string>
+    <string name="dialog_ranking_none">目前无人上榜</string>
     
     <string name="notify_title">我在北京的岁月</string>
     <string name="notify_quit_nomoney">《北京游戏报》报道：玩家“无名氏”在北京没挣着钱，被遣送回家。</string>

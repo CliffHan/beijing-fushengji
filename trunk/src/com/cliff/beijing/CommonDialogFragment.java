@@ -37,7 +37,10 @@ public class CommonDialogFragment extends SherlockDialogFragment {
 	public static void showRankingDialog(String title, View view, DialogInterface.OnDismissListener dismiss, FragmentActivity fragmentActivity) {
 		CommonDialogFragment frag = CommonDialogFragment.newInstance(R.drawable.dialog_info, title, null, true);
 		frag.setOnPositive(R.string.dialog_ok, null);
-		frag.setView(view);
+		if (null != view)
+			frag.setView(view);
+		else
+			frag.message = fragmentActivity.getString(R.string.dialog_ranking_none);
 		frag.setOnDismiss(dismiss);
 		frag.show(fragmentActivity.getSupportFragmentManager(), "dialog");		
 	}

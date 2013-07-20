@@ -1,5 +1,6 @@
 package com.cliff.beijing;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.locks.ReentrantLock;
@@ -20,17 +21,20 @@ import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Gravity;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.androidquery.AQuery;
+import com.cliff.beijing.PreferenceManager.Ranking;
 import com.cliff.beijing.game.Constants;
 import com.cliff.beijing.game.GameEngine;
 import com.cliff.beijing.game.Man;
@@ -461,51 +465,47 @@ public class MainActivity extends SherlockFragmentActivity implements OnClickLis
 	}
 
 	protected void showRankingDialog(final int pos, DialogInterface.OnDismissListener dismiss) {
-		final ListView rankingList = new ListView(this);
-		rankingList.setAdapter(new ArrayAdapter<PreferenceManager.Ranking>(this, R.layout.listitem_ranking, prefman.getRanking()) {
-
-			@Override
-			public View getView(int position, View convertView, ViewGroup parent) {
-				if (null == convertView)
-					convertView = getLayoutInflater().inflate(R.layout.listitem_ranking, null);
-				PreferenceManager.Ranking display = getItem(position);
-				AQuery aq = new AQuery(convertView);
-				aq.id(R.id.textViewRanking).text(""+(position+1));
-				aq.id(R.id.textViewName).text(""+display.name);
-				aq.id(R.id.textViewFame).text(getFameStr(display.fame));
-				aq.id(R.id.textViewHealth).text(getHealthStr(display.health));
-				aq.id(R.id.textViewMoney).text("¥ "+display.money);
-				if (position == pos) {
-					aq.id(R.id.textViewRanking).getTextView().setTextColor(Color.RED);
-					aq.id(R.id.textViewFame).getTextView().setTextColor(Color.RED);
-					aq.id(R.id.textViewName).getTextView().setTextColor(Color.RED);
-					aq.id(R.id.textViewHealth).getTextView().setTextColor(Color.RED);
-					aq.id(R.id.textViewMoney).getTextView().setTextColor(Color.RED);
+		ArrayList<Ranking> ra = prefman.getRanking();
+		if (ra.size() > 0) {
+			final ListView rankingList = new ListView(this);
+			rankingList.setAdapter(new ArrayAdapter<PreferenceManager.Ranking>(this, R.layout.listitem_ranking, ra) {
+	
+				@Override
+				public View getView(int position, View convertView, ViewGroup parent) {
+					if (null == convertView)
+						convertView = getLayoutInflater().inflate(R.layout.listitem_ranking, null);
+					PreferenceManager.Ranking display = getItem(position);
+					AQuery aq = new AQuery(convertView);
+					aq.id(R.id.textViewRanking).text(""+(position+1));
+					aq.id(R.id.textViewName).text(""+display.name);
+					aq.id(R.id.textViewFame).text(getFameStr(display.fame));
+					aq.id(R.id.textViewHealth).text(getHealthStr(display.health));
+					aq.id(R.id.textViewMoney).text("¥ "+display.money);
+					if (position == pos) {
+						aq.id(R.id.textViewRanking).getTextView().setTextColor(Color.RED);
+						aq.id(R.id.textViewFame).getTextView().setTextColor(Color.RED);
+						aq.id(R.id.textViewName).getTextView().setTextColor(Color.RED);
+						aq.id(R.id.textViewHealth).getTextView().setTextColor(Color.RED);
+						aq.id(R.id.textViewMoney).getTextView().setTextColor(Color.RED);
+					}
+					else {
+						aq.id(R.id.textViewRanking).getTextView().setTextColor(Color.BLACK);
+						aq.id(R.id.textViewFame).getTextView().setTextColor(Color.BLACK);
+						aq.id(R.id.textViewName).getTextView().setTextColor(Color.BLACK);
+						aq.id(R.id.textViewHealth).getTextView().setTextColor(Color.BLACK);
+						aq.id(R.id.textViewMoney).getTextView().setTextColor(Color.BLACK);					
+					}
+					return convertView;	
 				}
-				else {
-					aq.id(R.id.textViewRanking).getTextView().setTextColor(Color.BLACK);
-					aq.id(R.id.textViewFame).getTextView().setTextColor(Color.BLACK);
-					aq.id(R.id.textViewName).getTextView().setTextColor(Color.BLACK);
-					aq.id(R.id.textViewHealth).getTextView().setTextColor(Color.BLACK);
-					aq.id(R.id.textViewMoney).getTextView().setTextColor(Color.BLACK);					
-				}
-				return convertView;	
-			}
+				
+			});
 			
-		});
+			CommonDialogFragment.showRankingDialog(getString(R.string.dialog_ranking), rankingList, dismiss, this);
+		}
+		else {
+			CommonDialogFragment.showRankingDialog(getString(R.string.dialog_ranking), null, dismiss, this);
+		}
 		
-		CommonDialogFragment.showRankingDialog(getString(R.string.dialog_ranking), rankingList, dismiss, this);
-//		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//		builder.setIcon(R.drawable.dialog_info)
-//			   .setTitle(R.string.dialog_ranking)
-//			   .setView(rankingList)
-//		       .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
-//		           public void onClick(DialogInterface dialog, int id) {
-//		        	   dialog.dismiss();
-//		           }
-//		       });
-//		AlertDialog alert = builder.create();
-//		alert.show();		
 	}
 
 	protected void showNumberInputDialog(int iconId, int titleId, String message, int okId, int cancelId, int initNumber, final NumberInputCallback callback) {
