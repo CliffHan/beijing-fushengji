@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AdView">
+       <attr name="backColor" format="color|reference" />
+       <attr name="textColor" format="color|reference" />
+       <attr name="backAlpha" format="integer|reference" />
+       <attr name="titleColor" format="color|reference"/>
+    </declare-styleable>
+</resources>

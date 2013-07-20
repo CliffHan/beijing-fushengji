@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:key="IsPlaySound"
+        android:title="@string/pref_title_sound"
+        android:summary="@string/pref_summary_sound"
+        android:defaultValue="false" />
+    <CheckBoxPreference
+        android:key="IsAutoChangeTab"
+        android:title="@string/pref_title_tab"
+        android:summary="@string/pref_summary_tab"
+        android:defaultValue="false" />
+</PreferenceScreen>

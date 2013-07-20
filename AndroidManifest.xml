@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cliff.beijing"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+	<!-- 用于连接Internet,拉取广告 -->
+	<uses-permission android:name="android.permission.INTERNET" />
+	<!--用于识别网络接入点等信息,加快获取广告速度 -->
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<!--用于识别WIFI网络等信息,加快获取广告速度 -->
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<!-- 用于精确统计用户手机的系统信息 -->
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<!-- 用于缓存广告对象,节省用户流量,并提高用户体验 -->
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<!-- 有助于获取投放地域广告,提高广告与用户的相关性,提高广告点击率（可选） -->
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<!-- 有助于精准投放地域广告,提高广告与用户的相关性,提高广告点击率（可选） -->
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<!-- 用于 LBS 定位需 要（可选） 要（可选） -->
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+	<uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" 
+        android:uiOptions="splitActionBarWhenNarrow">
+        <meta-data
+            android:name="APP_ID"
+            android:value="258D309018A8392EA8985F23E1C7A048" />
+        <!-- 258D309018A8392EA8985F23E1C7A048--> 
+        <!-- meta-data
+            android:name="APP_CHANNEL"
+            android:value="" /-->
+        <activity 
+            android:name="com.cliff.beijing.Splash"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>            
+        </activity>
+        <activity
+            android:name="com.cliff.beijing.MainActivity"
+            android:label="@string/app_name" 
+            android:theme="@style/StyledIndicators" 
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustNothing">
+            <!-- intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter-->
+        </activity>
+        <activity
+            android:name="com.cliff.beijing.SettingsActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <!-- Mobwin所需要的Activity -->
+        <activity android:name="com.tencent.exmobwin.banner.MobWINBrowserActivity" />
+        <activity android:name="com.tencent.exmobwin.banner.DialogActivity"
+            android:theme="@android:style/Theme.Dialog" />
+        
+    </application>
+
+</manifest>
