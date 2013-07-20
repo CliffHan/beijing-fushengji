@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">beijing_fushengji</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="tabtitle_location">Location</string>
+    <string name="tabtitle_market">Market</string>
+    <string name="tabtitle_room">Room</string>
+    
+</resources>

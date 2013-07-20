@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="places">
+        <item>@string/location_pos0</item>
+        <item>@string/location_pos1</item>
+        <item>@string/location_pos2</item>
+        <item>@string/location_pos3</item>
+        <item>@string/location_pos4</item>
+        <item>@string/location_pos5</item>
+        <item>@string/location_pos6</item>
+        <item>@string/location_pos7</item>
+        <item>@string/location_pos8</item>
+    </string-array>
+
+</resources>

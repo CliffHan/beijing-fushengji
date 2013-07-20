@@ -1,0 +1,123 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mobwin="http://mobwin.android.com/apk/res/com.cliff.beijing"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainActivityLayout"
+    tools:context=".MainActivity" >
+
+    <!-- android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"-->
+    	
+	<com.viewpagerindicator.TabPageIndicator
+        android:id="@+id/indicator"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/indicator"
+        android:layout_above="@+id/divider1"
+        />
+	<View  
+	    android:id="@+id/divider1"
+	    android:layout_width="fill_parent"  
+	    android:layout_height="1dp"  
+	    android:layout_above="@+id/linearLayoutSpecialLocation"
+	    android:background="?android:attr/listDivider"
+	    android:layout_marginBottom="4dp"  
+	/>  
+
+	<LinearLayout
+        android:id="@+id/linearLayoutSpecialLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+        android:layout_above="@+id/divider2" 
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp" >
+
+        <ImageButton
+            android:id="@+id/buttonBank"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/location_bank"
+            android:src="@drawable/bank" 
+            android:scaleType="fitCenter"/>
+
+        <ImageButton
+            android:id="@+id/buttonPost"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/location_post"
+            android:src="@drawable/post"
+            android:scaleType="fitCenter"
+            />
+        
+        <ImageButton
+            android:id="@+id/buttonRent"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/location_rent"
+            android:src="@drawable/rent"
+            android:scaleType="fitCenter"
+            />
+        
+        <ImageButton
+            android:id="@+id/buttonHospital"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/location_hospital"
+            android:src="@drawable/hospital"
+            android:scaleType="fitCenter"
+            />
+        
+        <ImageButton
+            android:id="@+id/buttonNetwork"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/location_network"
+            android:src="@drawable/network"
+            android:scaleType="fitCenter"
+            />
+        
+    </LinearLayout>
+    	
+	<View  
+	    android:id="@+id/divider2"
+	    android:layout_width="fill_parent"  
+	    android:layout_height="1dp"  
+        android:layout_above="@+id/itemStatus"
+	    android:background="?android:attr/listDivider"
+	    android:layout_marginTop="4dp"  
+	    android:layout_marginBottom="4dp"  
+	/>  
+    
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/itemStatus"
+        android:layout_above="@+id/adview" 
+        android:layout_marginBottom="4dp">        
+    	<include layout="@layout/item_status" />
+    </RelativeLayout>
+
+	<com.tencent.exmobwin.banner.TMiniAdView
+		xmlns:mobwin="http://mobwin.android.com/apk/res/com.tencent.mobwin.plutin"
+		android:id="@+id/adview"
+        android:layout_alignParentBottom="true"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+	</com.tencent.exmobwin.banner.TMiniAdView>
+
+</RelativeLayout>
