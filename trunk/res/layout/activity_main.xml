@@ -6,16 +6,19 @@
     android:id="@+id/mainActivityLayout"
     tools:context=".MainActivity" >
 
-    <!-- android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"-->
-    	
-	<com.viewpagerindicator.TabPageIndicator
+	<com.tencent.exmobwin.banner.TMiniAdView
+		xmlns:mobwin="http://mobwin.android.com/apk/res/com.tencent.mobwin.plutin"
+		android:id="@+id/adview"
+        android:layout_alignParentTop="true"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+	</com.tencent.exmobwin.banner.TMiniAdView>
+
+    <com.viewpagerindicator.TabPageIndicator
         android:id="@+id/indicator"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/adview"
         />
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
@@ -107,17 +110,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/itemStatus"
-        android:layout_above="@+id/adview" 
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="4dp">        
     	<include layout="@layout/item_status" />
     </RelativeLayout>
-
-	<com.tencent.exmobwin.banner.TMiniAdView
-		xmlns:mobwin="http://mobwin.android.com/apk/res/com.tencent.mobwin.plutin"
-		android:id="@+id/adview"
-        android:layout_alignParentBottom="true"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
-	</com.tencent.exmobwin.banner.TMiniAdView>
 
 </RelativeLayout>
