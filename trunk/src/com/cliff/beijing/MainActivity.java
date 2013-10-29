@@ -39,8 +39,6 @@ import com.cliff.beijing.game.Constants;
 import com.cliff.beijing.game.GameEngine;
 import com.cliff.beijing.game.Man;
 import com.cliff.beijing.game.Room;
-import com.tencent.exmobwin.MobWINManager;
-import com.tencent.exmobwin.Type;
 import com.viewpagerindicator.TabPageIndicator;
 
 import de.greenrobot.event.EventBus;
@@ -86,7 +84,6 @@ public class MainActivity extends SherlockFragmentActivity implements OnClickLis
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		MobWINManager.init(this, Type.MOBWIN_BANNER);		
 		initSound();
 		android.preference.PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 		prefman = new PreferenceManager(android.preference.PreferenceManager.getDefaultSharedPreferences(this));		
@@ -138,7 +135,6 @@ public class MainActivity extends SherlockFragmentActivity implements OnClickLis
 	@Override
 	protected void onDestroy() {
 		EventBus.getDefault().unregister(this);
-		MobWINManager.destroy();
 		super.onDestroy();
 	}
 	
@@ -358,8 +354,8 @@ public class MainActivity extends SherlockFragmentActivity implements OnClickLis
 	protected void startNewGame() {
 		notifications.clear();
 		EventBus.getDefault().unregister(this);
-		GameEngine.getInstance().init(getApplicationContext());
-
+		GameEngine.getInstance().init(getApplicationContext(), prefman.isHackerEnabled());
+		
 		//update all fragments
 		EventBus.getDefault().post(Constants.UPDATE_PLACE);
 		EventBus.getDefault().post(Constants.UPDATE_MARKET);

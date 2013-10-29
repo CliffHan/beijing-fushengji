@@ -11,6 +11,7 @@ public class PreferenceManager {
 	public static final String KEY_LAST_PLAYER_NAME = "LastPlayerName";
 	public static final String KEY_RANKING_ORDER = "RankingOrder"; 
 	public static final String KEY_AUTO_CHANGE_TAB = "IsAutoChangeTab";
+	public static final String KEY_HACKER_ENABLED = "IsHackerEnabled";	
 	public static final String KEY_PLAY_SOUND = "IsPlaySound";	
 	
 	protected final String KEY_RANKINGS[] = new String[]{
@@ -55,6 +56,10 @@ public class PreferenceManager {
 
 	public boolean isAutoChangeTab() {
 		return mPref.getBoolean(KEY_AUTO_CHANGE_TAB, false);
+	}
+
+	public boolean isHackerEnabled() {
+		return mPref.getBoolean(KEY_HACKER_ENABLED, false);
 	}
 
 	public ArrayList<Ranking> getRanking() {

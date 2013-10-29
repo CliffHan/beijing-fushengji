@@ -163,6 +163,8 @@ public class Constants {
 			new MarketEvent(35, R.string.notify_market_16, 3, 0, 0, 4),
 			new MarketEvent(140, R.string.notify_market_17, 6, 0, 0, 1, 2500) };
 	
+	public static int EVENTS_HACKER_FREQ = 20;
+	
 	//goods parmeters
 	public static final int GOOD_TYPE_COUNT = 8;	
 	public static final int GOOD_TYPE_LEAVE = 3;	
