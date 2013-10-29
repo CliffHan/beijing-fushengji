@@ -7,8 +7,10 @@
 
     <string name="pref_title_sound">音效</string>
     <string name="pref_title_tab">自动切换</string>
+    <string name="pref_title_hacker">允许黑客攻击银行网络</string>
     <string name="pref_summary_sound">事件发生时播放声音</string>
     <string name="pref_summary_tab">根据情况自动切换到市场或出租屋</string>
+    <string name="pref_summary_hacker">存款将有概率大幅变化，新游戏时生效</string>
     
     <string name="tabtitle_location">地点</string>
     <string name="tabtitle_market">黑市</string>
@@ -151,7 +153,9 @@
 	<string name="notify_rent_cheated">我的房子可以放%d个物品了！可是，好象中介公司骗了我一些钱……</string>
 	<string name="notify_internet_cannot_pay">进网吧至少身上要带%d元，呵呵，取钱再来。</string>							
 	<string name="notify_internet_no_need">村长放出话来：你别总是在网吧里鬼混，快去做正经买卖！</string>								
-	<string name="notify_internet_money">感谢电信改革，可以免费上网！还挣了美国网络广告费%d元，嘿嘿！</string>										
+	<string name="notify_internet_money">感谢电信改革，可以免费上网！还挣了美国网络广告费%d元，嘿嘿！</string>
+	<string name="notify_hacker_increase">黑客入侵银行网络，疯狂修改数据库，我的存款增加了%d元！</string>
+	<string name="notify_hacker_decrease">黑客入侵银行网络，疯狂修改数据库，我的存款减少了%d元！</string>												
 
 	<string name="notify_place_faint">由于不注意身体，我被人发现昏迷在%1$s附近的%2$s。好心的市民把我抬到医院，医生让我治疗%3$d天。村长让人为我垫付了住院费用%4$d元。</string>	
     <string name="place_faint_0">发廊里</string>

@@ -22,6 +22,7 @@ public class GameEngine {
 	protected int internetCount = 0;
 	protected boolean is1stBadWine = true;
 	protected boolean is1stBadBook = true;
+	protected boolean isHackerEnabled = false;
 	protected Context mContext = null;
 	
 	protected GameEngine() {		
@@ -31,7 +32,7 @@ public class GameEngine {
 		return instance;
 	}
 	
-	public void init(Context context) {
+	public void init(Context context, boolean isHackerEnabled) {
 		man.init();
 		room.init();
 		place = -1;
@@ -40,6 +41,7 @@ public class GameEngine {
 		internetCount = 0;
 		is1stBadWine = true;
 		is1stBadBook = true;
+		this.isHackerEnabled = isHackerEnabled; 
 //		EventBus.getDefault().post(new Integer(Constants.UPDATE_ALL));
 		if (null == mContext)
 			mContext = context;
@@ -152,6 +154,47 @@ public class GameEngine {
 				EventBus.getDefault().post(Constants.UPDATE_MONEY);
 				EventBus.getDefault().post(reason);				
 			}
+		}
+		
+		//random HackerEvent
+		if (isHackerEnabled) {
+			if (0 ==(Constants.getRandom(Constants.RANDOM_DIVIDEND) % Constants.EVENTS_HACKER_FREQ)) {
+				
+				String reason = null;
+				
+				if (man.getDeposit() < Constants.FIXED_LEVEL_POOR) {
+					   // deposit is too little, no need to crack
+				}
+				else if(man.getDeposit() > Constants.FIXED_LEVEL_MIDDLE )
+				{
+					//really rich than a middle-layer
+					
+					//usually have 2/3 chance of decreasing
+					//and 1/3 chance of increasing
+					//the number should be 1/21 to 1/2 of your deposit
+					int num = (int)(man.getDeposit() / (2+Constants.getRandom(20)) );
+					if(Constants.getRandom(20)%3!=0){
+						reason = String.format(mContext.getString(R.string.notify_hacker_decrease), 
+								num);
+						man.setDeposit(man.getDeposit() - num);
+		            }
+					else{
+						reason = String.format(mContext.getString(R.string.notify_hacker_increase), 
+								num);
+						man.setDeposit(man.getDeposit() + num);			             
+					}
+				}
+		        else		
+				{
+		        	//middle-layer, only got chance of increasing
+					int num=(int)(man.getDeposit()/(1+Constants.getRandom(15)));
+					reason = String.format(mContext.getString(R.string.notify_hacker_increase), 
+							num);
+					man.setDeposit(man.getDeposit() + num);
+				}
+				EventBus.getDefault().post(Constants.UPDATE_MONEY);
+				EventBus.getDefault().post(reason);
+			}			
 		}
 		
 		//random Market Event and update goods display
